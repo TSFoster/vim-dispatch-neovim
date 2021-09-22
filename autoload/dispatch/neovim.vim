@@ -68,7 +68,7 @@ function! dispatch#neovim#handle(request) abort
 			execute "normal G"
 			execute 'wincmd p'
 		else
-			execute 'tabnew'
+			execute get(g:, 'dispatch_neovim_new_cmd', 'tabnew')
 			call termopen(cmd, opts)
 			call s:SaveCurrentBufferPid(a:request)
 			execute "normal G"
